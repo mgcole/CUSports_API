@@ -1,0 +1,3037 @@
+{
+	"info": {
+		"_postman_id": "d967b7bc-5b5e-403d-b3e2-8785172c2b30",
+		"name": "Sp3 - Admin Rebuild - Mock & Docs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "search",
+			"item": [
+				{
+					"name": "product Index",
+					"item": [
+						{
+							"name": "Search for Products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/search/productIndex",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"search",
+										"productIndex"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "",
+											"description": "Keyword to search for in product name",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "",
+											"description": "Category of products to return",
+											"disabled": true
+										},
+										{
+											"key": "startPrice",
+											"value": "0.00",
+											"description": "Start price of products",
+											"disabled": true
+										},
+										{
+											"key": "stopPrice",
+											"value": "0.00",
+											"description": "Stop price of products",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Find all products IDs that include passed keyword in their name or tags.\n\nExamples include:\n- Passing No Parameters to Return All Products (200 Response)\n###### output: all products IDs\n\n- Finding Products With a Keyword (200 Response)\n###### input: keyword as a string\n###### output: all products IDs that include the passed keyword\n\n- Finding Products With Category (200 Response)\n###### input: category as a string\n###### output: all products in category\n\n- Finding Products in a Price Range (200 Response)\n###### input: start price\n###### input: stop price\n###### output: all products with price in range\n\n- Finding Products in Category With Keyword (200 Response)\n###### input: keyword as a string\n###### input: category as a string\n###### output: all products in category with keyword\n\n- Finding Products in Category by Price (200 Response)\n###### input: category as a string\n###### input: start price\n###### input: stop price\n###### output: all products in category in price range\n\n- Finding Products by Keyword in Price Range (200 Response)\n###### input: keyword as a string\n###### input: start price\n###### input: stop price\n###### output: all products with keyword in price range\n\n- Finding Products by Keyword in Category in Price Range (200 Response)\n###### input: keyword as a string\n###### input: category as a string\n###### input: start price\n###### input: stop price\n###### output: all products with keyword in category in price range\n\n- Passing Keyword and Finding No Matching Products (204 Response)\n###### input: keyword as a string\n###### output: empty response\n\n- Passing Category and Finding No Matching Products (204 Response)\n###### input: category as a string\n###### output: empty response\n\n- Passing Price Range and Finding No Matching Products (204 Response)\n###### input: start price\n###### input: stop price\n###### output: empty response\n\n- Invalid Price Range (400 Response)\n###### input: invalid start price\n###### input: invalid stop price\n###### output: error message\n\n- Server Error (500 Response)\n###### output: error message\n"
+							},
+							"response": [
+								{
+									"name": "Find all Products",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "",
+													"description": "Keyword to search for in product name",
+													"disabled": true
+												},
+												{
+													"key": "category",
+													"value": "",
+													"description": "Category of products to return",
+													"disabled": true
+												},
+												{
+													"key": "startPrice",
+													"value": "0",
+													"description": "Start price of products",
+													"disabled": true
+												},
+												{
+													"key": "stopPrice",
+													"value": "0",
+													"description": "Stop price of products",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"size\": 37,\r\n  \"index\": [\r\n    1,\r\n    2,\r\n    3,\r\n    4,\r\n    5,\r\n    6,\r\n    7,\r\n    8,\r\n    9,\r\n    10,\r\n    11,\r\n    12,\r\n    13,\r\n    14,\r\n    15,\r\n    16,\r\n    17,\r\n    18,\r\n    19,\r\n    20,\r\n    21,\r\n    22,\r\n    23,\r\n    24,\r\n    25,\r\n    26,\r\n    27,\r\n    28,\r\n    29,\r\n    30,\r\n    31,\r\n    32,\r\n    33,\r\n    34,\r\n    35,\r\n    36,\r\n    37\r\n  ]\r\n}"
+								},
+								{
+									"name": "Invalid Input - Invalid Price Range",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?startPrice=10.00&stopPrice=0.00",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "",
+													"description": "Keyword to search for in product name",
+													"disabled": true
+												},
+												{
+													"key": "category",
+													"value": "",
+													"description": "Category of products to return",
+													"disabled": true
+												},
+												{
+													"key": "startPrice",
+													"value": "10.00",
+													"description": "Start price of products"
+												},
+												{
+													"key": "stopPrice",
+													"value": "0.00",
+													"description": "Stop price of products"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"code\": 400,\r\n  \"message\": \"Invalid Price Range\"\r\n}"
+								},
+								{
+									"name": "No Products for Price Range",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?startPrice=0.00&stopPrice=1.00",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "",
+													"description": "Keyword to search for in product name",
+													"disabled": true
+												},
+												{
+													"key": "category",
+													"value": "",
+													"description": "Category of products to return",
+													"disabled": true
+												},
+												{
+													"key": "startPrice",
+													"value": "0.00",
+													"description": "Start price of products"
+												},
+												{
+													"key": "stopPrice",
+													"value": "1.00",
+													"description": "Stop price of products"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Find Products by Keyword, Category, and Price Range",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?keyword=hat&category=summer&startPrice=0.00&stopPrice=10.00",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "hat",
+													"description": "Keyword to search for in product name"
+												},
+												{
+													"key": "category",
+													"value": "summer",
+													"description": "Category of products to return"
+												},
+												{
+													"key": "startPrice",
+													"value": "0.00",
+													"description": "Start price of products"
+												},
+												{
+													"key": "stopPrice",
+													"value": "10.00",
+													"description": "Stop price of products"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"size\": 1,\n  \"index\": [\n    3\n  ]\n}"
+								},
+								{
+									"name": "No Products for Keyword",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?keyword=burger",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "burger",
+													"description": "Keyword to search for in product name"
+												},
+												{
+													"key": "category",
+													"value": "",
+													"description": "Category of products to return",
+													"disabled": true
+												},
+												{
+													"key": "startPrice",
+													"value": "0.00",
+													"description": "Start price of products",
+													"disabled": true
+												},
+												{
+													"key": "stopPrice",
+													"value": "0.00",
+													"description": "Stop price of products",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Find Products in Category by Price Range",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?category=summer&startPrice=0.00&stopPrice=10.00",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "",
+													"description": "Keyword to search for in product name",
+													"disabled": true
+												},
+												{
+													"key": "category",
+													"value": "summer",
+													"description": "Category of products to return"
+												},
+												{
+													"key": "startPrice",
+													"value": "0.00",
+													"description": "Start price of products"
+												},
+												{
+													"key": "stopPrice",
+													"value": "10.00",
+													"description": "Stop price of products"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"size\": 2,\n  \"index\": [\n    3,\n    5\n  ]\n}"
+								},
+								{
+									"name": "Find Products in Category by keyword",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?keyword=hat&category=summer",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "hat",
+													"description": "Keyword to search for in product name"
+												},
+												{
+													"key": "category",
+													"value": "summer",
+													"description": "Category of products to return"
+												},
+												{
+													"key": "startPrice",
+													"value": "0.00",
+													"description": "Start price of products",
+													"disabled": true
+												},
+												{
+													"key": "stopPrice",
+													"value": "0.00",
+													"description": "Stop price of products",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"size\": 3,\r\n  \"index\": [\r\n    3,\r\n    11,\r\n    12\r\n  ]\r\n}"
+								},
+								{
+									"name": "No Products for Category",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?category=food",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "",
+													"description": "Keyword to search for in product name",
+													"disabled": true
+												},
+												{
+													"key": "category",
+													"value": "food",
+													"description": "Category of products to return"
+												},
+												{
+													"key": "startPrice",
+													"value": "0.00",
+													"description": "Start price of products",
+													"disabled": true
+												},
+												{
+													"key": "stopPrice",
+													"value": "0.00",
+													"description": "Stop price of products",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Find Products by Category",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?keyword=&value=&startPrice=0&stopPrice=0",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "",
+													"description": "Keyword to search for in product name"
+												},
+												{
+													"key": "value",
+													"value": "",
+													"description": "Category of products to return"
+												},
+												{
+													"key": "startPrice",
+													"value": "0",
+													"description": "(Required) Start price of products"
+												},
+												{
+													"key": "stopPrice",
+													"value": "0",
+													"description": "Stop price of products"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"size\": 13,\n  \"index\": [\n    3,\n    4,\n    5,\n    8,\n    11,\n    12,\n    15,\n    16,\n    17,\n    22,\n    24,\n    26,\n    34\n  ]\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?keyword=&category=&startPrice=0.00&stopPrice=0.00",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "",
+													"description": "Keyword to search for in product name"
+												},
+												{
+													"key": "category",
+													"value": "",
+													"description": "Category of products to return"
+												},
+												{
+													"key": "startPrice",
+													"value": "0.00",
+													"description": "Start price of products"
+												},
+												{
+													"key": "stopPrice",
+													"value": "0.00",
+													"description": "Stop price of products"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 500,\n  \"message\": \"An internal server error has occurred.\"\n}"
+								},
+								{
+									"name": "Find Products by Keyword in Price Range",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?keyword=hat&startPrice=0.00&stopPrice=10.00",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "hat",
+													"description": "Keyword to search for in product name"
+												},
+												{
+													"key": "category",
+													"value": "",
+													"description": "Category of products to return",
+													"disabled": true
+												},
+												{
+													"key": "startPrice",
+													"value": "0.00",
+													"description": "Start price of products"
+												},
+												{
+													"key": "stopPrice",
+													"value": "10.00",
+													"description": "Stop price of products"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"size\": 2,\r\n  \"index\": [\r\n    3,\r\n    11\r\n  ]\r\n}"
+								},
+								{
+									"name": "Find Products by Keyword",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?keyword=hat",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "hat",
+													"description": "Keyword to search for in product name"
+												},
+												{
+													"key": "value",
+													"value": "",
+													"description": "Category of products to return",
+													"disabled": true
+												},
+												{
+													"key": "startPrice",
+													"value": "0",
+													"description": "(Required) Start price of products",
+													"disabled": true
+												},
+												{
+													"key": "stopPrice",
+													"value": "0",
+													"description": "Stop price of products",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"size\": 3,\r\n  \"index\": [\r\n    003,\r\n    109,\r\n    110\r\n  ]\r\n}"
+								},
+								{
+									"name": "Find by Price Range",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?startPrice=0.00&stopPrice=10.00",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "",
+													"description": "Keyword to search for in product name",
+													"disabled": true
+												},
+												{
+													"key": "category",
+													"value": "",
+													"description": "Category of products to return",
+													"disabled": true
+												},
+												{
+													"key": "startPrice",
+													"value": "0.00",
+													"description": "Start price of products"
+												},
+												{
+													"key": "stopPrice",
+													"value": "10.00",
+													"description": "Stop price of products"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"size\": 7,\r\n  \"index\": [\r\n    3,\r\n    8,\r\n    9,\r\n    11,\r\n    15,\r\n    17,\r\n    31\r\n  ]\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Add Product to Index",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 0,\n  \"price\": 0,\n  \"name\": \"\",\n  \"categories\": [\n    {\n      \"value\": \"\"\n    },\n    {\n      \"value\": \"\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/search/productIndex?token=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"search",
+										"productIndex"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "",
+											"description": "(Required) Administrator Token"
+										}
+									]
+								},
+								"description": "Add a new product to the product search index to make it searchable.\n\nExamples include:\n- Adding a New Product to the Index (201 Response)\n###### input: administrator token\n###### input: product search object\n\n- Trying to Add a Product with an Existing ID (400 Response)\n###### input: administrator token\n###### input: product search object\n###### output: error message\n\n- Passing in a Bad Product Object (400 Response)\n###### input: administrator token\n###### input: invalid product search object\n###### output: error message\n\n- Passing in a Bad Token (403 Response)\n###### input: invalid token\n###### input: product search object\n###### output: error message\n\n- Server Error (500 Response)\n###### output: error message\n"
+							},
+							"response": [
+								{
+									"name": "Invalid Input - Existing Product Object",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 0,\n    \"price\": 0,\n    \"name\": \"\",\n    \"categories\": [\n        {\n            \"value\": \"reference #components/schemas/ProductKeyword not found in the OpenAPI spec\"\n        },\n        {\n            \"value\": \"reference #components/schemas/ProductKeyword not found in the OpenAPI spec\"\n        }\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=validTokenExistingProduct123",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "validTokenExistingProduct123"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": 400,\n \"message\": \"Product object already exists!\"\n}"
+								},
+								{
+									"name": "Product added to Index",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 123,\n    \"price\": 123,\n    \"name\": \"validProductSearchObject\",\n    \"categories\": [\n        {\n            \"value\": \"reference #components/schemas/ProductKeyword not found in the OpenAPI spec\"\n        },\n        {\n            \"value\": \"reference #components/schemas/ProductKeyword not found in the OpenAPI spec\"\n        }\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=validToken123",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "validToken123"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n    \"code\": 201,\r\n    \"message\": \"Product added!\"\r\n}"
+								},
+								{
+									"name": "Invalid Input - Bad ProductSearch Object",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=ezEyMzQ1NjctQkFET0JKLUFETUlOfQo=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctQkFET0JKLUFETUlOfQo=",
+													"description": "(Required) Administrator Token"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"code\": 400,\r\n  \"message\": \"Invalid product object format\"\r\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 0,\n  \"price\": 0,\n  \"name\": \"\",\n  \"categories\": [\n    {\n      \"value\": \"\"\n    },\n    {\n      \"value\": \"\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "",
+													"description": "(Required) Administrator Token"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 500,\n  \"message\": \"An internal server error has occurred.\"\n}"
+								},
+								{
+									"name": "Invalid Input - Bad Token",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": 0,\n    \"price\": 0,\n    \"name\": \"\",\n    \"categories\": [\n        {\n            \"value\": \"reference #components/schemas/ProductKeyword not found in the OpenAPI spec\"\n        },\n        {\n            \"value\": \"reference #components/schemas/ProductKeyword not found in the OpenAPI spec\"\n        }\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=badToken",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "badToken"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": 403,\n \"message\": \"Invalid auth token!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Product in Index",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 0,\r\n  \"price\": 0,\r\n  \"name\": \"\",\r\n  \"categories\": [\r\n    {\r\n      \"value\": \"\"\r\n    },\r\n    {\r\n      \"value\": \"\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/search/productIndex?token=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"search",
+										"productIndex"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "",
+											"description": "(Required) Administrator Token"
+										}
+									]
+								},
+								"description": "Update the product search index entry for a given id with the provided object.\n\nExamples include:\n- Successful Update of Product in Index (200 Response)\n###### input: administrator token\n###### input: product search object\n\n- Invalid Product Search Object Entered (400 Response)\n###### input: administrator token\n###### input: product search object\n###### output: error message\n\n- Invalid Authentication Token (403 Response)\n###### input: invalid token\n###### input: product search object\n###### output: error message\n\n- Nonexistent Product to Update (404 Response)\n###### input: administrator token\n###### input: product search object\n###### output: error message\n\n- Server Error (500 Response)\n###### output: error message\n"
+							},
+							"response": [
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 0,\r\n  \"price\": 0,\r\n  \"name\": \"\",\r\n  \"categories\": [\r\n    {\r\n      \"value\": \"\"\r\n    },\r\n    {\r\n      \"value\": \"\"\r\n    }\r\n  ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "",
+													"description": "(Required) Administrator Token"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 500,\n  \"message\": \"Internal server error has occurred.\"\n}"
+								},
+								{
+									"name": "Invalid Input - Bad ProductSearch Object",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=ezEyMzQ1NjctQkFET0JKLUFETUlOfQo=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctQkFET0JKLUFETUlOfQo=",
+													"description": "(Required) Administrator Token"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 400,\n  \"message\": \"Invalid product search object!\"\n}"
+								},
+								{
+									"name": "Invalid Input - Bad Token",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 11,\r\n  \"price\": 9.99,\r\n  \"name\": \"Clemson Kids Cowboy Hat\",\r\n  \"categories\": [\r\n    {\r\n      \"value\": \"hat\"\r\n    },\r\n    {\r\n      \"value\": \"kids\"\r\n    },\r\n    {\r\n      \"value\": \"summer\"\r\n    }\r\n  ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=ezEyMzQ1NjctSU5WQUxJRC1BRE1JTn0K",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctSU5WQUxJRC1BRE1JTn0K",
+													"description": "(Required) Administrator Token"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 403,\n  \"message\": \"Invalid auth token!\"\n}"
+								},
+								{
+									"name": "Product in Index Updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 11,\r\n  \"price\": 9.99,\r\n  \"name\": \"Clemson Kids Cowboy Hat\",\r\n  \"categories\": [\r\n    {\r\n      \"value\": \"hat\"\r\n    },\r\n    {\r\n      \"value\": \"kids\"\r\n    },\r\n    {\r\n      \"value\": \"summer\"\r\n    }\r\n  ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==",
+													"description": "(Required) Administrator Token"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"code\": 200,\r\n  \"message\": \"Product successfully updated!\"\r\n}"
+								},
+								{
+									"name": "Invalid Input - Product Does Not Exist",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": 41,\r\n  \"price\": 11.99,\r\n  \"name\": \"Tiger Paw Tumbler\",\r\n  \"categories\": [\r\n    {\r\n      \"value\": \"drinkware\"\r\n    },\r\n    {\r\n      \"value\": \"summer\"\r\n    }\r\n  ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=ezEyMzQ1NjctRVhJU1RJTkctQURNSU59Cg==",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctRVhJU1RJTkctQURNSU59Cg==",
+													"description": "(Required) Administrator Token"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 404,\n  \"message\": \"Product does not exist!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete a Product from Index",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/search/productIndex?token=&productID=0",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"search",
+										"productIndex"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "",
+											"description": "(Required) Administrator Token"
+										},
+										{
+											"key": "productID",
+											"value": "0",
+											"description": "(Required) Product ID to delete"
+										}
+									]
+								},
+								"description": "Remove a product from the index given its ID.\n\nExamples include:\n- Successful Removal of a Product Object (200 Response)\n###### input: administrator token\n###### input: product id\n\n- Invalid Product ID Input (400 Response)\n###### input: administrator token\n###### input: invalid product id\n###### output: error message\n\n- Invalid Authentication Token (403 Response)\n###### input: invalid token\n###### input: product id\n###### output: error message\n\n- Nonexistent Product to Delete (404 Response)\n###### input: administrator token\n###### input: product ID\n###### output: error message\n\n- Server Error (500 Response)\n###### output: error message\n"
+							},
+							"response": [
+								{
+									"name": "Invalid Input - Product Does Not Exist",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==&productID=41",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==",
+													"description": "(Required) Administrator Token"
+												},
+												{
+													"key": "productID",
+													"value": "41",
+													"description": "(Required) Product ID to delete"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 404,\n  \"message\": \"Product ID does not exist!\"\n}"
+								},
+								{
+									"name": "Invalid Input - Bad Token",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=ezEyMzQ1NjctSU5WQUxJRC1BRE1JTn0K&productID=11",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctSU5WQUxJRC1BRE1JTn0K",
+													"description": "(Required) Administrator Token"
+												},
+												{
+													"key": "productID",
+													"value": "11",
+													"description": "(Required) Product ID to delete"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 403,\n  \"message\": \"Invalid auth token!\"\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=&productID=0",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "",
+													"description": "(Required) Administrator Token"
+												},
+												{
+													"key": "productID",
+													"value": "0",
+													"description": "(Required) Product ID to delete"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 500,\n  \"message\": \"Internal server error has occurred.\"\n}"
+								},
+								{
+									"name": "Product Deleted From Index",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==&productID=11",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQURNSU59Cg=="
+												},
+												{
+													"key": "productID",
+													"value": "11"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"code\": 200,\r\n  \"message\": \"Product successfully deleted from index!\"\r\n}"
+								},
+								{
+									"name": "Invalid Input - Bad ProductID",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex?token=ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==&productID=-1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==",
+													"description": "(Required) Administrator Token"
+												},
+												{
+													"key": "productID",
+													"value": "-1",
+													"description": "(Required) Product ID to delete"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 400,\n  \"message\": \"Invalid product ID!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Force Rebuild of Underlying Index",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/search/productIndex/rebuild?token=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"search",
+										"productIndex",
+										"rebuild"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "",
+											"description": "(Required) Authentication token"
+										}
+									]
+								},
+								"description": "Trigger a rebuilding of underlying search index.\n\nExamples Include:\n- Triggering an Index Rebuild (202 Response)\n###### input: authentication token\n\n- Invalid Token (403 Response)\n###### input: invalid authentication token\n###### output: error message\n\n- Server Error (500 Response)\n###### output: error message\n"
+							},
+							"response": [
+								{
+									"name": "Rebuilding Index",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex/rebuild?token=validToken123",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex",
+												"rebuild"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "validToken123"
+												}
+											]
+										}
+									},
+									"status": "Accepted",
+									"code": 202,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n    \"code\": 202,\r\n    \"message\": \"Index rebuild successfully started!\"\r\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex/rebuild?token=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex",
+												"rebuild"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "",
+													"description": "(Required) Administrator Token"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 500,\n  \"message\": \"Internal server error has occurred.\"\n}"
+								},
+								{
+									"name": "Invalid Input - 403 Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/productIndex/rebuild?token=ezEyMzQ1NjctSU5WQUxJRC1BRE1JTn0K",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"productIndex",
+												"rebuild"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctSU5WQUxJRC1BRE1JTn0K",
+													"description": "(Required) Administrator Token"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 403,\n  \"message\": \"Invalid auth token!\"\n}"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "order Index",
+					"item": [
+						{
+							"name": "Search for Orders",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/search/orderIndex?token=&startDate=&stopDate=&status=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"search",
+										"orderIndex"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "",
+											"description": "(Required) Authentication Token"
+										},
+										{
+											"key": "startDate",
+											"value": "",
+											"description": "Start Date to search from"
+										},
+										{
+											"key": "stopDate",
+											"value": "",
+											"description": "Stop date to search to"
+										},
+										{
+											"key": "status",
+											"value": "",
+											"description": "Status of order"
+										}
+									]
+								},
+								"description": "Find all orders in the specified date range and by the order status.\n\nExamples include:\n- Customer Finding All Previous Orders (200 Response)\n###### input: customer user token\n###### output: customer order IDs\n\n- Customer Finding Previous Orders in a Range (200 Response)\n###### input: customer user token\n###### input: search start date\n###### input: search stop date\n###### output: customer order IDs for range\n\n- Warehouse User Searching for Open Orders (200 Response)\n###### input: warehouse user token\n###### input: 'Open' status\n###### output: open order IDs\n\n- Customer Finding No Previous or Current Order IDs (204 Response)\n###### input: customer user token\n###### output: empty response\n\n- Customer Finding No Order IDs in Range (204 Response)\n###### input: customer user token\n###### input: search start date\n###### input: search stop date\n###### output: empty response\n\n- Warehouse User Finding No Open Orders (204 Response)\n###### input: warehouse user token\n###### input: 'Open' status\n###### output: empty response\n\n- Invalid Date Range (400 Response)\n###### input: customer user token\n###### input: invalid start date\n###### input: invalid end date\n###### output: error message\n\n- Invalid Status (400 Response)\n###### input: warehouse user token\n###### input: invalid status\n###### output: error message\n\n- Invalid Token (403 Response)\n###### input: no or invalid user token\n###### output: error message\n\n- Server Error (500 Response)\n###### output: error message\n"
+							},
+							"response": [
+								{
+									"name": "Customer - All Previous Orders",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVJ9Cg==",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVJ9Cg==",
+													"description": "(Required) Authentication Token"
+												},
+												{
+													"key": "startDate",
+													"value": "",
+													"description": "Start Date to search from",
+													"disabled": true
+												},
+												{
+													"key": "stopDate",
+													"value": "",
+													"description": "Stop date to search to",
+													"disabled": true
+												},
+												{
+													"key": "status",
+													"value": "",
+													"description": "Status of order",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"size\": 3,\n \"index\": [\n  102,\n  202,\n  302\n ]\n}"
+								},
+								{
+									"name": "Invalid Input - Bad Token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctSU5WQUxJRC1XQVJFSE9VU0V9Cg==&status=Open",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctSU5WQUxJRC1XQVJFSE9VU0V9Cg==",
+													"description": "(Required) Authentication Token"
+												},
+												{
+													"key": "startDate",
+													"value": "",
+													"description": "Start Date to search from",
+													"disabled": true
+												},
+												{
+													"key": "stopDate",
+													"value": "",
+													"description": "Stop date to search to",
+													"disabled": true
+												},
+												{
+													"key": "status",
+													"value": "Open",
+													"description": "Status of order"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"code\": 403,\r\n  \"message\": \"You do not have access to this resource\"\r\n}"
+								},
+								{
+									"name": "Customer - Find Orders in Range",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVJ9Cg==&startDate=2020-11-01&stopDate=2020-11-08",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVJ9Cg==",
+													"description": "(Required) Authentication Token"
+												},
+												{
+													"key": "startDate",
+													"value": "2020-11-01",
+													"description": "Start Date to search from"
+												},
+												{
+													"key": "stopDate",
+													"value": "2020-11-08",
+													"description": "Stop date to search to"
+												},
+												{
+													"key": "status",
+													"value": "",
+													"description": "Status of order",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"size\": 1,\r\n  \"index\": [\r\n    102\r\n  ]\r\n}"
+								},
+								{
+									"name": "Warehouse - No Open Orders",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtV0FSRUhPVVNFMn0K&status=Open",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtV0FSRUhPVVNFMn0K",
+													"description": "(Required) Authentication Token"
+												},
+												{
+													"key": "startDate",
+													"value": "",
+													"description": "Start Date to search from",
+													"disabled": true
+												},
+												{
+													"key": "stopDate",
+													"value": "",
+													"description": "Stop date to search to",
+													"disabled": true
+												},
+												{
+													"key": "status",
+													"value": "Open",
+													"description": "Status of order"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Warehouse - Find All Open Orders",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtV0FSRUhPVVNFfQo=&status=Open",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtV0FSRUhPVVNFfQo=",
+													"description": "(Required) Authentication Token"
+												},
+												{
+													"key": "startDate",
+													"value": "",
+													"description": "Start Date to search from",
+													"disabled": true
+												},
+												{
+													"key": "stopDate",
+													"value": "",
+													"description": "Stop date to search to",
+													"disabled": true
+												},
+												{
+													"key": "status",
+													"value": "Open",
+													"description": "Status of order"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"size\": 10,\r\n  \"index\": [\r\n    301,\r\n    302,\r\n    303,\r\n    304,\r\n    305,\r\n    306,\r\n    307,\r\n    308,\r\n    309,\r\n    310\r\n  ]\r\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=&startDate=&stopDate=&status=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "",
+													"description": "(Required) Authentication Token"
+												},
+												{
+													"key": "startDate",
+													"value": "",
+													"description": "Start Date to search from"
+												},
+												{
+													"key": "stopDate",
+													"value": "",
+													"description": "Stop date to search to"
+												},
+												{
+													"key": "status",
+													"value": "",
+													"description": "Status of order"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"code\": 500,\r\n  \"message\": \"Internal server error has occurred\"\r\n}"
+								},
+								{
+									"name": "Cutomer - No Orders in Range",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVJ9Cg==&startDate=2020-04-01&stopDate=2020-05-13",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVJ9Cg==",
+													"description": "(Required) Authentication Token"
+												},
+												{
+													"key": "startDate",
+													"value": "2020-04-01",
+													"description": "Start Date to search from"
+												},
+												{
+													"key": "stopDate",
+													"value": "2020-05-13",
+													"description": "Stop date to search to"
+												},
+												{
+													"key": "status",
+													"value": "",
+													"description": "Status of order",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Customer - No Previous Orders",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVIyfQo=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVIyfQo=",
+													"description": "(Required) Authentication Token"
+												},
+												{
+													"key": "startDate",
+													"value": "",
+													"description": "Start Date to search from",
+													"disabled": true
+												},
+												{
+													"key": "stopDate",
+													"value": "",
+													"description": "Stop date to search to",
+													"disabled": true
+												},
+												{
+													"key": "status",
+													"value": "",
+													"description": "Status of order",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Invalid Input - Bad Date Range",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVJ9Cg==&startDate=2020-10-11&stopDate=2020-01-01",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVJ9Cg==",
+													"description": "(Required) Authentication Token"
+												},
+												{
+													"key": "startDate",
+													"value": "2020-10-11",
+													"description": "Start Date to search from"
+												},
+												{
+													"key": "stopDate",
+													"value": "2020-01-01",
+													"description": "Stop date to search to"
+												},
+												{
+													"key": "status",
+													"value": "",
+													"description": "Status of order",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 400,\n  \"message\": \"Invalid date range\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Add Order to Index",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 0,\n  \"date\": null,\n  \"status\": null\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/search/orderIndex?token=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"search",
+										"orderIndex"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "",
+											"description": "(Required) Authentication Token"
+										}
+									]
+								},
+								"description": "Add a new order to the order search index to make it searchable.\n\nExamples include:\n- Adding a New Order to the Index (201 Response)\n###### input: administrator token\n###### input: order search object\n\n- Trying to Add a Order with an Existing ID (400 Response)\n###### input: administrator token\n###### input: order search object\n###### output: error message\n\n- Passing in a Bad Order Object (400 Response)\n###### input: administrator token\n###### input: invalid order search object\n###### output: error message\n\n- Passing in a Bad Token (403 Response)\n###### input: invalid token\n###### input: order search object\n###### output: error message\n\n- Server Error (500 Response)\n###### output: error message\n"
+							},
+							"response": [
+								{
+									"name": "Order Added to Index",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 313,\n  \"date\": \"2020-11-21\",\n  \"status\": \"Open\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVJ9Cg==",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVJ9Cg==",
+													"description": "(Required) Authentication Token"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 0,\n  \"date\": null,\n  \"status\": null\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "",
+													"description": "(Required) Authentication Token"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": 500,\n \"message\": \"Internal server error has occurred.\"\n}"
+								},
+								{
+									"name": "Invalid Input - Bad Token",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 313,\n  \"date\": \"2020-11-21\",\n  \"status\": \"Open\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctSU5WQUxJRC1DVVNUT01FUn0K",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctSU5WQUxJRC1DVVNUT01FUn0K",
+													"description": "(Required) Authentication Token"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 403,\n  \"message\": \"You do not have access to this resource\"\n}"
+								},
+								{
+									"name": "Invalid Input - Bad OrderSearch Object",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVIyfQo=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVIyfQo=",
+													"description": "(Required) Authentication Token"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 400,\n  \"message\": \"Invalid Object\"\n}"
+								},
+								{
+									"name": "Invalid Input - Existing Order ID",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 310,\n  \"date\": \"2020-11-21\",\n  \"status\": \"Open\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctRVhJU1RJTkctQ1VTVE9NRVJ9Cg==",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctRVhJU1RJTkctQ1VTVE9NRVJ9Cg==",
+													"description": "(Required) Authentication Token"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\r\n  \"code\": 400,\r\n  \"message\": \"Order ID already exists\"\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Order in Index",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 0,\n  \"date\": null,\n  \"status\": null\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/search/orderIndex?token=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"search",
+										"orderIndex"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "",
+											"description": "(Required) Authentication Token"
+										}
+									]
+								},
+								"description": "Update the order search index entry for a given id with the provided object.\n\nExamples include:\n- Successful Update of Order in Index (200 Response)\n###### input: administrator token\n###### input: order search object\n\n- Invalid Order Search Object Entered (400 Response)\n###### input: administrator token\n###### input: order search object\n###### output: error message\n\n- Invalid Authentication Token (403 Response)\n###### input: invalid token\n###### input: order search object\n###### output: error message\n\n- Nonexistent Order to Update (404 Response)\n###### input: administrator token\n###### input: order search object\n###### output: error message\n\n- Server Error (500 Response)\n###### output: error message\n"
+							},
+							"response": [
+								{
+									"name": "Invalid Input - Order does not exist",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 322,\n  \"date\": \"2020-11-17\",\n  \"status\": \"In-Transit\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVIyfQo=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQ1VTVE9NRVIyfQo=",
+													"description": "(Required) Authentication Token"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 404,\n  \"message\": \"Specified order ID does not exist\"\n}"
+								},
+								{
+									"name": "Order in Index Updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 302,\n  \"date\": \"2020-11-17\",\n  \"status\": \"In-Transit\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtV0FSRUhPVVNFMn0K",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtV0FSRUhPVVNFMn0K",
+													"description": "(Required) Authentication Token"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Invalid Input - Bad Token",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 302,\n  \"date\": \"2020-11-17\",\n  \"status\": \"In-Transit\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctSU5WQUxJRC1DVVNUT01FUn0K",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctSU5WQUxJRC1DVVNUT01FUn0K",
+													"description": "(Required) Authentication Token"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 403,\n  \"message\": \"You do not have access to this resource\"\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 0,\n  \"date\": null,\n  \"status\": null\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/search/orderIndex?token=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "",
+													"description": "(Required) Authentication Token"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 500,\n  \"message\": \"Internal server error has occurred\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Order from Index",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/search/orderIndex?token=&orderID=0",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"search",
+										"orderIndex"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "",
+											"description": "(Required) Administrator Token"
+										},
+										{
+											"key": "orderID",
+											"value": "0",
+											"description": "(Required) Order ID to delete"
+										}
+									]
+								},
+								"description": "Remove a order from the index given its ID.\n\nExamples include:\n- Successful Removal of a Order Object (200 Response)\n###### input: administrator token\n###### input: order id\n\n- Invalid Order ID Input (400 Response)\n###### input: administrator token\n###### input: invalid order id\n###### output: error message\n\n- Invalid Authentication Token (403 Response)\n###### input: invalid token\n###### input: order id\n###### output: error message\n\n- Nonexistent Order to Delete (404 Response)\n###### input: administrator token\n###### input: order ID\n###### output: error message\n\n- Server Error (500 Response)\n###### output: error message\n"
+							},
+							"response": [
+								{
+									"name": "Invalid Input - Bad Token",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctSU5WQUxJRC1BRE1JTn0K&orderID=201",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctSU5WQUxJRC1BRE1JTn0K",
+													"description": "(Required) Administrator Token"
+												},
+												{
+													"key": "orderID",
+													"value": "201",
+													"description": "(Required) Order ID to delete"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 403,\n  \"message\": \"You do not have access to this resource.\"\n}"
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=&orderID=0",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "",
+													"description": "(Required) Administrator Token"
+												},
+												{
+													"key": "orderID",
+													"value": "0",
+													"description": "(Required) Order ID to delete"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 500,\n  \"message\": \"An internal server error has occurred.\"\n}"
+								},
+								{
+									"name": "Invalid Input - Order ID Does Not Exist",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==&orderID=500",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==",
+													"description": "(Required) Administrator Token"
+												},
+												{
+													"key": "orderID",
+													"value": "500",
+													"description": "(Required) Order ID to delete"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 404,\n  \"message\": \"Order ID not found\"\n}"
+								},
+								{
+									"name": "Invalid Input - Bad Order ID",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==&orderID=-1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==",
+													"description": "(Required) Administator Token"
+												},
+												{
+													"key": "orderID",
+													"value": "-1",
+													"description": "(Required) Order ID to delete"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 400,\n  \"message\": \"Invalid order ID number\"\n}"
+								},
+								{
+									"name": "Order Deleted From Index",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex?token=ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==&orderID=201",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==",
+													"description": "(Required) Administrator Token"
+												},
+												{
+													"key": "orderID",
+													"value": "201",
+													"description": "(Required) Order ID to delete"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Force Rebuild of Underlying Index",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/search/orderIndex/rebuild?token=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"search",
+										"orderIndex",
+										"rebuild"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "",
+											"description": "(Required) Authentication token"
+										}
+									]
+								},
+								"description": "Trigger a rebuilding of underlying search index.\n\nExamples Include:\n- Triggering an Index Rebuild (202 Response)\n###### input: authentication token\n\n- Invalid Token (403 Response)\n###### input: invalid authentication token\n###### output: error message\n\n- Server Error (500 Response)\n###### output: error message\n"
+							},
+							"response": [
+								{
+									"name": "Invalid Input - Bad Token",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex/rebuild?token=ezEyMzQ1NjctSU5WQUxJRC1BRE1JTn0K",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex",
+												"rebuild"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctSU5WQUxJRC1BRE1JTn0K",
+													"description": "(Required) Administrator Token"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 403,\n  \"message\": \"You do not have access to this resource.\"\n}"
+								},
+								{
+									"name": "Rebuilding Index",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex/rebuild?token=ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex",
+												"rebuild"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "ezEyMzQ1NjctVkFMSUQtQURNSU59Cg==",
+													"description": "(Required) Authentication Token"
+												}
+											]
+										}
+									},
+									"status": "Accepted",
+									"code": 202,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/search/orderIndex/rebuild?token=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"search",
+												"orderIndex",
+												"rebuild"
+											],
+											"query": [
+												{
+													"key": "token",
+													"value": "",
+													"description": "(Required) Authentication Token"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": 500,\n  \"message\": \"An internal server error has occurred.\"\n}"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "{{url}}",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
